@@ -1,0 +1,12 @@
+========================================
+        MOVIE TICKET BOOKING SYSTEM
+========================================
+
+[1] Movies
+[2] Cinemas
+[3] Showtimes
+[4] Book Tickets
+[5] Admin Panel
+[6] Exit
+
+----------------------------------------
