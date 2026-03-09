@@ -133,6 +133,11 @@
   <ItemGroup>
     <ClInclude Include="CinemaMenu.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StaticLibrary1\StaticLibrary1.vcxproj">
+      <Project>{2b7b9e5e-1f7b-4ae2-acf2-4093d4e14261}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

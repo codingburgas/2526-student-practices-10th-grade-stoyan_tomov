@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "../StaticLibrary1/AdminPanel.h"
 using namespace std;
 
 void printMenu()
@@ -34,9 +35,17 @@ int main()
         {
             moviesSection();
         }
-        else
+        else if (choice == 5)
         {
-            cout << "Option not implemented yet.\n";
+            adminPanel();
+        }
+        else if(choice == 6)
+        {
+            cout << "Exiting...\n";
+            break;
+        }
+        else {
+            cout << "Option not added yet\n";
         }
 
         cout << "\nPress Enter to continue...";
