@@ -4,8 +4,15 @@
 #include <vector>
 #include <string>
 
-extern std::vector<std::string> movies;
+struct Movie {
+    std::string name;
+    std::vector<std::string> showtimes;
+};
+
+
+extern std::vector<Movie> movies;
 
 void adminPanel();
+void showtimesSection();
 
 #endif

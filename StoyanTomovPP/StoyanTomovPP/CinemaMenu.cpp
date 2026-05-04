@@ -21,11 +21,13 @@ void moviesSection() {
         cout << "No movies currently showing.\n";
     }
     else {
-        for (int i = 0; i < movies.size(); i++) {
-            cout << "- " << movies[i] << endl;
+        for (int i = 0; i < (int)movies.size(); i++) {
+            cout << i + 1 << ". " << movies[i].name << endl;
         }
     }
-    cout << "==========================\n";
+    cout << "\nPress Enter to return...";
+    cin.ignore();
+    cin.get();
 }
 
 int main() {
@@ -35,23 +37,10 @@ int main() {
         cout << "\nEnter choice: ";
         cin >> choice;
 
-        if (choice == 1) {
-            moviesSection();
-        }
-        else if (choice == 5) {
-            adminPanel();
-        }
-        else if (choice == 6) {
-            cout << "Exiting...\n";
-            break;
-        }
-        else {
-            cout << "Option not added yet\n";
-        }
-
-        cout << "\nPress Enter to continue...";
-        cin.ignore();
-        cin.get();
+        if (choice == 1) moviesSection();
+        else if (choice == 3) showtimesSection();
+        else if (choice == 5) adminPanel();
+        else if (choice == 6) break;
     }
     return 0;
 }
