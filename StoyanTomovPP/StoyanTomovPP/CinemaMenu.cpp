@@ -1,46 +1,47 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <string>
 #include "../StaticLibrary1/AdminPanel.h"
+
 using namespace std;
 
-void printMenu()
-{
+void printMenu() {
     ifstream file("CinemaMenu.txt");
-    if (!file)
-    {
+    if (!file) {
         cout << "Error: Could not open CinemaMenu.txt\n";
         return;
     }
     cout << file.rdbuf();
 }
 
-void moviesSection()
-{
+void moviesSection() {
     cout << "\n===== MOVIES SECTION =====\n";
-    cout << "This is where movies will be shown.\n\n";
+    if (movies.empty()) {
+        cout << "No movies currently showing.\n";
+    }
+    else {
+        for (int i = 0; i < movies.size(); i++) {
+            cout << "- " << movies[i] << endl;
+        }
+    }
+    cout << "==========================\n";
 }
 
-int main()
-{
+int main() {
     int choice;
-
-    while (true)
-    {
+    while (true) {
         printMenu();
-
         cout << "\nEnter choice: ";
         cin >> choice;
 
-        if (choice == 1)
-        {
+        if (choice == 1) {
             moviesSection();
         }
-        else if (choice == 5)
-        {
+        else if (choice == 5) {
             adminPanel();
         }
-        else if(choice == 6)
-        {
+        else if (choice == 6) {
             cout << "Exiting...\n";
             break;
         }
@@ -52,7 +53,5 @@ int main()
         cin.ignore();
         cin.get();
     }
-
     return 0;
 }
-

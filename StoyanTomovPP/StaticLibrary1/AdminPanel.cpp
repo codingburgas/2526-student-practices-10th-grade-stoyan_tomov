@@ -5,14 +5,14 @@
 
 using namespace std;
 
-static vector<string> movies;
+// Removed 'static' so menu.cpp can see this
+vector<string> movies;
 
 void listMovies() {
     if (movies.empty()) {
         cout << "No movies available.\n";
         return;
     }
-
     cout << "\n----- MOVIE LIST -----\n";
     for (int i = 0; i < movies.size(); i++) {
         cout << i + 1 << ". " << movies[i] << endl;
@@ -25,7 +25,6 @@ void addMovie() {
     cin.ignore();
     string name;
     getline(cin, name);
-
     movies.push_back(name);
     cout << "Movie added successfully.\n";
 }
@@ -35,25 +34,20 @@ void removeMovie() {
         cout << "No movies to remove.\n";
         return;
     }
-
     listMovies();
     cout << "Enter movie number to remove: ";
-
     int index;
     cin >> index;
-
     if (index < 1 || index > movies.size()) {
         cout << "Invalid index.\n";
         return;
     }
-
     movies.erase(movies.begin() + (index - 1));
     cout << "Movie removed.\n";
 }
 
 void movieManagementMenu() {
     int choice = 0;
-
     while (choice != 4) {
         cout << "\n===== MOVIE MANAGEMENT =====\n";
         cout << "1. Add Movie\n";
@@ -62,7 +56,6 @@ void movieManagementMenu() {
         cout << "4. Back\n";
         cout << "Select: ";
         cin >> choice;
-
         switch (choice) {
         case 1: addMovie(); break;
         case 2: removeMovie(); break;
@@ -73,10 +66,8 @@ void movieManagementMenu() {
     }
 }
 
-void adminPanel()
-{
+void adminPanel() {
     int choice = 0;
-
     while (choice != 4) {
         cout << "\n===== ADMIN PANEL =====\n";
         cout << "1. Movie Management\n";
@@ -85,7 +76,6 @@ void adminPanel()
         cout << "4. Back\n";
         cout << "Select: ";
         cin >> choice;
-
         switch (choice) {
         case 1: movieManagementMenu(); break;
         case 2: cout << "Feature not implemented yet.\n"; break;
